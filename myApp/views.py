@@ -12,3 +12,7 @@ def about(request):
 
 def services(request):
     return HttpResponse("this is a service page")
+
+
+def contact(request):
+    return HttpResponse("this is a contact page")
