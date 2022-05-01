@@ -20,6 +20,7 @@ admin.site.site_header = "Gautam Ice Cream Admin"
 admin.site.site_title = "Gautam Ice Cream Admin Portal"
 admin.site.index_title = "Welcome to Gautam Ice Cream Admin Portal"
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myApp.urls'))
