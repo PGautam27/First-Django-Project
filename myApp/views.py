@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from datetime import datetime
+from myApp.models import Contact
 
 # Create your views here.
 def index(request):
@@ -18,4 +19,10 @@ def services(request):
 
 
 def contact(request):
+    if request.method == "POST":
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        desc = request.POST.get('desc')
+        contacts = Contact(email=email, phone=phone, desc=desc, date=datetime.today())
+        contacts.save()
     return render(request, 'contact.html')
