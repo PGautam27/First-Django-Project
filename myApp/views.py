@@ -21,15 +21,12 @@ def services(request):
 
 
 def contact(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         desc = request.POST.get('desc')
         contacts = Contact(name=name, email=email, phone=phone, desc=desc, date=datetime.today())
-        try:
-            contacts.save()
-        except IntegrityError as err:
-            print("Ignoring unhandled integrity error:")
-            print(err)
+        contacts.save()
+
     return render(request, 'contact.html')
