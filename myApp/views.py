@@ -1,7 +1,7 @@
-from django.db.utils import IntegrityError
-from django.shortcuts import render
 from datetime import datetime
+from django.shortcuts import render
 from myApp.models import Contact
+from django.contrib import messages
 
 
 # Create your views here.
@@ -28,4 +28,5 @@ def contact(request):
         desc = request.POST.get('desc')
         contacts = Contact(name=name, email=email, phone=phone, desc=desc, date=datetime.today())
         contacts.save()
+        messages.success(request, 'Your message was sent bro')
     return render(request, 'contact.html')
