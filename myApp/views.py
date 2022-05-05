@@ -1,6 +1,6 @@
 from datetime import datetime
 from django.shortcuts import render
-from myApp.models import Contact
+from myApp.models import Contact, Photo
 from django.contrib import messages
 
 
@@ -27,6 +27,8 @@ def contact(request):
         phone = request.POST.get('phone')
         desc = request.POST.get('desc')
         contacts = Contact(name=name, email=email, phone=phone, desc=desc, date=datetime.today())
+        photo = Photo(mine=name,date=datetime.today())
         contacts.save()
+        photo.save()
         messages.success(request, 'Your message was sent bro')
     return render(request, 'contact.html')

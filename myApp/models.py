@@ -11,3 +11,8 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Photo(models.Model):
+    mine = models.CharField(max_length=12)
+    date = models.DateField()
